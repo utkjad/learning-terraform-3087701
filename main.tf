@@ -14,11 +14,6 @@ data "aws_ami" "app_ami" {
   owners = ["979382823631"] # Bitnami
 }
 
-<<<<<<< HEAD
-resource "aws_instance" "web" {
-  ami           = data.aws_ami.app_ami.id
-  instance_type = var.instance_type
-=======
 data "aws_vpc" "default" {
   default = true
 }
@@ -27,7 +22,6 @@ resource "aws_instance" "blog" {
   ami                    = data.aws_ami.app_ami.id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.blog.id]
->>>>>>> 03_04
 
   tags = {
     Name = "Learning Terraform"
